@@ -1,5 +1,5 @@
-const String appName = "Clean Architecture";
-const String restApiBaseUrl = "https://newsapi.org/v2";
-const String newsApiKey = "";
-const String articleTableName = "articles_table";
-const String dbName = "app_database.db";
+const String kAppName = "Clean Architecture";
+const String kRestApiBaseUrl = "https://newsapi.org/v2";
+const String kNewsApiKey = "";
+const String kArticleTableName = "articles_table";
+const String kDbName = "app_database.db";
