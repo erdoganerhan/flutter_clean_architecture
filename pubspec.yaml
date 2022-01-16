@@ -38,6 +38,7 @@ dependencies:
   dio: ^4.0.4
   equatable: ^2.0.3
   retrofit: ^3.0.1
+  bloc: ^8.0.2
 
 dev_dependencies:
   flutter_test:
