@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import '../../../domain/entities/article.dart';
 
-import '../../domain/entities/article.dart';
-
-class ArticleWidget extends StatelessWidget {
-  final Article? article;
+class ArticleItem extends StatelessWidget {
+  final Article article;
   final bool isRemovable;
   final void Function(Article article)? onRemove;
   final void Function(Article article)? onArticlePressed;
 
-  const ArticleWidget({
+  const ArticleItem({
     Key? key,
-    this.article,
+    required this.article,
     this.onArticlePressed,
     this.isRemovable = false,
     this.onRemove,
@@ -48,7 +47,7 @@ class ArticleWidget extends StatelessWidget {
             color: Colors.black.withOpacity(0.08),
           ),
           child: Image.network(
-            article?.urlToImage ?? '',
+            article.urlToImage,
             fit: BoxFit.cover,
             errorBuilder: (_, __, ___) {
               return const Center(
@@ -74,7 +73,7 @@ class ArticleWidget extends StatelessWidget {
           children: [
             // Title
             Text(
-              article?.title ?? '',
+              article.title,
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
@@ -90,7 +89,7 @@ class ArticleWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 4),
                 child: Text(
-                  article?.description ?? '',
+                  article.description,
                   maxLines: 2,
                 ),
               ),
@@ -99,10 +98,10 @@ class ArticleWidget extends StatelessWidget {
             // Datetime
             Row(
               children: [
-                const Icon(Icons.timelapse_sharp, size: 16),
+                const Icon(Icons.timelapse, size: 16),
                 const SizedBox(width: 4),
                 Text(
-                  article?.publishedAt ?? '-',
+                  article.publishedAt,
                   style: const TextStyle(
                     fontSize: 12,
                   ),
@@ -121,7 +120,7 @@ class ArticleWidget extends StatelessWidget {
         onTap: _onRemove,
         child: const Padding(
           padding: EdgeInsets.symmetric(horizontal: 8),
-          child: Icon(Icons.delete_outline, color: Colors.red),
+          child: Icon(Icons.delete_outline_rounded, color: Colors.red),
         ),
       );
     }
@@ -130,13 +129,13 @@ class ArticleWidget extends StatelessWidget {
 
   void _onTap() {
     if (onArticlePressed != null) {
-      onArticlePressed!(article!);
+      onArticlePressed!(article);
     }
   }
 
   void _onRemove() {
     if (onRemove != null) {
-      onRemove!(article!);
+      onRemove!(article);
     }
   }
 }

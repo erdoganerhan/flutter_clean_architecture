@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../presentation/views/breaking_news_view.dart';
+import '../../presentation/posts/view/posts_page.dart';
 
 class AppRoutes {
   static Route? onGenerateRoutes(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return _materialRoute(const BreakingNewsView());
+        return _materialRoute(const PostsPage());
       default:
         return null;
     }
