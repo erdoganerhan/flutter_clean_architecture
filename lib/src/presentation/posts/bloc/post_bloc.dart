@@ -64,7 +64,7 @@ class PostBloc extends Bloc<PostEvent, PostState> {
   Future<List<Article>> _fetchPosts([int startIndex = 0]) async {
     final response =
         await _getArticlesUseCase(params: ArticlesRequestParams(page: _page));
-    if (response is DataSuccess && response.data!.isNotEmpty) {
+    if (response is DataSuccess) {
       final articles = response.data;
       _articles.addAll(articles!);
       _page++;
