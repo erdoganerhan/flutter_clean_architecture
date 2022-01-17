@@ -3,5 +3,5 @@ import '../../core/params/base_request.dart';
 import '../../core/resources/data_state.dart';
 
 abstract class UserRepository {
-  Future<DataState<List<User>>> getUser(BaseRequestParams params);
+  Future<DataState<User>> getUser(BaseRequestParams params);
 }
