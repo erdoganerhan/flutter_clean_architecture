@@ -10,11 +10,7 @@ class PostsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: const Text(
-        kAppName,
-        style: TextStyle(color: Colors.black),
-      )),
+      appBar: AppBar(title: const Text(kAppName)),
       body: BlocProvider<PostBloc>(
         create: (_) => injector()..add(PostFetched()),
         child: const PostsList(),
