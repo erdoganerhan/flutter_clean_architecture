@@ -18,12 +18,11 @@ class ArticlesRepositoryImpl implements ArticlesRepository {
       ArticlesRequestParams params) async {
     try {
       final httpResponse = await _newsApiService.getBreakingNewsArticles(
-        apiKey: params.apiKey,
-        country: params.country,
-        category: params.category,
-        page: params.page,
-        pageSize: params.pageSize,
-      );
+          apiKey: params.apiKey,
+          country: params.country,
+          category: params.category,
+          page: params.page,
+          pageSize: params.pageSize);
 
       if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSuccess(httpResponse.data.articles);
